@@ -7,6 +7,7 @@ class AppBarCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlexibleSpaceBar(
+      
       stretchModes: [
         StretchMode.zoomBackground,
         StretchMode.fadeTitle,
@@ -15,15 +16,29 @@ class AppBarCustom extends StatelessWidget {
       centerTitle: true,
       title: Padding(
         padding: const EdgeInsets.all(16),
-        child: SizedBox(
-          height: 60,
+        child: Container(
+          constraints: BoxConstraints(
+            maxWidth: 300.0,
+          ),
+          width: MediaQuery.of(context).size.width * 0.85,
+          height: 30,
           child: TextField(
-            
+            textAlign: TextAlign.justify,
+            textAlignVertical: TextAlignVertical.bottom,
+            textDirection: TextDirection.rtl,
             decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search, color: Colors.purple,),
-                alignLabelWithHint: false,
-                labelText: "Pesquise algo...",
-                labelStyle: TextStyle(fontSize: 16.0),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: Colors.purple,
+                ),
+                hintTextDirection: TextDirection.ltr,
+                hintMaxLines: 1,
+                alignLabelWithHint: true,
+                contentPadding: EdgeInsets.all(15),
+                hintText: "Pesquise pelo o portifólio",
+                hintStyle: TextStyle(
+                  fontSize: 10.0,
+                ),
                 filled: true,
                 border: InputBorder.none,
                 fillColor: Colors.white),

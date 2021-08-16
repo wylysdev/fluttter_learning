@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:god_app_example/comom/widgets/AppBarCustom/app_bar_custom.dart';
+import 'package:god_app_example/pages/functions_and_voidcallbacks/count_page.dart';
 
-import 'comom/widgets/PageModel/page_model_widget.dart';
+import 'comom/models/app_sizes.dart';
+import 'comom/widgets/PageModel/card_model_widget.dart';
 
 void main() {
   runApp(MyApp());
 }
+
+// texto em portugues hein
+
+/// text in for way
 
 class MyApp extends StatelessWidget {
   @override
@@ -63,45 +69,48 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           SliverPadding(
             padding: EdgeInsets.all(16.0),
-            sliver: SliverGrid.count(
-              crossAxisCount: 2,
+            sliver: SliverGrid.extent(
+              //crossAxisCount: 2,
+              maxCrossAxisExtent: 300,
               mainAxisSpacing: 8.0,
+              childAspectRatio: 2,
               crossAxisSpacing: 8.0,
               children: [
-                PageModelWidget(
+                CardModelWidget(
                   index: 1,
                   namePage: "Uso de funções callback",
                   onPressed: () {
-                    print("Cliquei");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CounterPage()));
                   },
                 ),
-                PageModelWidget(
+                CardModelWidget(
                   index: 1,
                   namePage: "Exemplo... ",
                 ),
-                PageModelWidget(
+                CardModelWidget(
                   index: 1,
                   namePage: "Exemplo... ",
                 ),
-                PageModelWidget(
+                CardModelWidget(
                   index: 1,
                   namePage: "Exemplo... ",
                 ),
-                PageModelWidget(
+                CardModelWidget(
                   index: 1,
                   namePage: "Exemplo... ",
                 ),
-                PageModelWidget(
+                CardModelWidget(
                   index: 1,
                   namePage: "Exemplo... ",
                 ),
-                PageModelWidget(
+                CardModelWidget(
                   index: 1,
                   namePage: "Exemplo... ",
                 ),
               ],
             ),
-          )
+          ),
         ],
       )),
     );
